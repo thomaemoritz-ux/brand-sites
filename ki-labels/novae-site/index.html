@@ -9,11 +9,14 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../shared/label.css">
 
-  <!-- Bedingung aus URL-Parameter und Bild-Komponente.
+  <!-- Gemeinsamer Studien-Code für alle Seiten (identisch in beiden Versionen):
+       Bedingung aus ?label=1|0, Bild-Komponente mit KI-Label, 90-Sekunden-Timer.
        Synchron geladen, damit das Label im selben Frame wie das Bild erscheint. -->
-  <script src="js/condition.js"></script>
-  <script src="js/experimental-image.js"></script>
+  <script src="../shared/condition.js"></script>
+  <script src="../shared/experimental-image.js"></script>
+  <script src="../shared/session.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -36,7 +39,7 @@
       </nav>
 
       <div class="site-header__actions">
-        <a class="btn btn--small btn--primary" href="#service">Fragen &amp; Kontakt</a>
+        <a class="btn btn--small btn--primary" href="#service">Händler finden</a>
         <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
           <span class="nav-toggle__bar"></span>
           <span class="nav-toggle__bar"></span>
@@ -54,8 +57,8 @@
         <h1 class="hero__title" id="hero-title">Strahlende Haut beginnt mit Feuchtigkeit.</h1>
         <p class="hero__sub">Das NOVAÉ Radiant Serum versorgt die Haut intensiv mit Feuchtigkeit und schenkt ihr einen frischen, ebenmäßigen Glow.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#anwendung">Anwendung ansehen</a>
-          <a class="btn btn--outline" href="#serum">Serum entdecken</a>
+          <a class="btn btn--primary" href="#serum">Mehr erfahren</a>
+          <a class="btn btn--outline" href="#service">Händler finden</a>
         </div>
       </div>
 
@@ -238,13 +241,13 @@
     </section>
 
     <!-- H. FINAL CTA -->
-    <section class="section section--ivory cta" id="kaufen" aria-labelledby="cta-title">
+    <section class="section section--ivory cta" id="abschluss" aria-labelledby="cta-title">
       <div class="container cta__inner reveal">
         <h2 class="h2 cta__title" id="cta-title">NOVAÉ Radiant Serum.</h2>
         <p class="cta__sub">Hydrate. Replenish. Glow.</p>
         <div class="cta__actions">
-          <a class="btn btn--primary" href="#wirkstoffe">Wirkstoffe ansehen</a>
-          <a class="btn btn--outline" href="#routine">Routine ansehen</a>
+          <a class="btn btn--primary" href="#wirkstoffe">Mehr erfahren</a>
+          <a class="btn btn--outline" href="#service">Händler finden</a>
         </div>
       </div>
     </section>
@@ -254,11 +257,10 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
         <div class="info-block__body">
-          <p>Du hast Fragen zur Anwendung, zu den Inhaltsstoffen oder zur Routine? Unser Beauty-Service hilft dir persönlich weiter.</p>
+          <p>Du hast Fragen zur Anwendung, zu den Inhaltsstoffen oder zur Routine? Unser Beauty-Service beantwortet deine Anfrage per E-Mail.</p>
           <dl class="info-list">
-            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
-            <div><dt>E-Mail</dt><dd>service@novae-skin.example</dd></div>
-            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag 9–17 Uhr</dd></div>
+            <div><dt>E-Mail</dt><dd>service@novae-skin.de</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag, 9–17 Uhr</dd></div>
             <div><dt>Im Handel</dt><dd>Das Radiant Serum und die weiteren Pflegeprodukte findest du in ausgewählten Parfümerien und Drogerien.</dd></div>
           </dl>
         </div>
@@ -325,9 +327,9 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="impressum-title">Impressum</h2>
         <div class="info-block__body">
-          <p>Angaben gemäß § 5 DDG:<br>NOVAÉ Skin GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
-          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
-          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+          <p>Angaben gemäß § 5 DDG:<br>NOVAÉ Skin GmbH<br>Hafenstraße 8<br>20457 Hamburg<br>Deutschland</p>
+          <p>Geschäftsführung: Katharina Brandt</p>
+          <p>Kontakt: E-Mail service@novae-skin.de · weitere Informationen unter <a href="#service">Service &amp; Kontakt</a>.</p>
         </div>
       </div>
     </section>

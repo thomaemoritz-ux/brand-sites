@@ -1,7 +1,7 @@
 /* ==========================================================================
    ARLOWE – Produktdetailseite (Mode)
    Ein Stylesheet für beide Experimentalbedingungen. Einziger Unterschied:
-   das KI-Label (.xi__label) – weißer Text unten rechts in der Bildecke –
+   das KI-Label (../shared/label.css, EU-Icon unten rechts in der Bildecke) –
    existiert nur in Version B im DOM.
    ========================================================================== */
 
@@ -282,260 +282,6 @@ button, input { font-family: inherit; }
 }
 
 /* --------------------------------------------------------------------------
-   5. Brotkrumen + Produktbereich
-   -------------------------------------------------------------------------- */
-.crumbs { padding-block: 16px; }
-.crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 0; font-size: 12px; color: var(--muted); }
-.crumbs li + li::before { content: "/"; margin-inline: 8px; }
-.crumbs a { text-decoration: none; }
-.crumbs a:hover { color: var(--ink); text-decoration: underline; }
-
-.pdp {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 420px;
-  gap: 48px;
-  align-items: start;
-  padding-bottom: 72px;
-}
-
-/* --------------------------------------------------------------------------
-   6. Galerie
-   -------------------------------------------------------------------------- */
-.gallery { position: relative; }
-
-.gallery__track {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px;
-}
-
-.gallery__item {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-  background: var(--cell);
-}
-.gallery__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Randartefakte der Quelldateien (3–7 px) ausblenden – nur Darstellung,
-     die Bilddateien bleiben unverändert. */
-  transform: scale(var(--trim, 1));
-  transform-origin: var(--trim-origin, 100% 100%);
-}
-.gallery__item--medium { --trim: 1.008; --trim-origin: 50% 50%; }
-.gallery__item--full   { --trim: 1.010; --trim-origin: 100% 100%; }
-.gallery__item--front  { --trim: 1.016; --trim-origin: 0 100%; }
-.gallery__item--back   { --trim: 1.016; --trim-origin: 100% 100%; }
-.gallery__item--detail { --trim: 1.010; --trim-origin: 0 0; }
-.gallery__item--print  { --trim: 1.016; --trim-origin: 100% 100%; }
-
-/* KI-Label: offizielles EU-Icon "Fully AI-Generated" (schwarz), auf allen Seiten
-   dieselbe Datei und Größe. Absolut positioniert: kein Einfluss auf Größe,
-   Layout oder Scrollhöhe. */
-experimental-image img.xi__label {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  z-index: 2;
-  width: auto;
-  height: 26px;
-  max-width: calc(100% - 24px);
-  object-fit: contain;
-  transform: none;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-@media (max-width: 720px) {
-  experimental-image img.xi__label { right: 10px; bottom: 10px; height: 20px; }
-}
-
-.gallery__ui { display: none; }
-
-@media (max-width: 1100px) {
-  .pdp { grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; }
-}
-
-@media (max-width: 900px) {
-  .pdp { grid-template-columns: 1fr; gap: 24px; padding-bottom: 48px; }
-  .crumbs { padding-block: 12px; }
-
-  .gallery { margin-inline: calc(var(--gutter) * -1); }
-  .gallery__track {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-  .gallery__track::-webkit-scrollbar { display: none; }
-  .gallery__item { flex: 0 0 100%; scroll-snap-align: start; }
-
-  .gallery__ui { display: block; }
-  .gallery__arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid var(--line);
-    border-radius: 50%;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
-  .gallery__arrow--prev { left: 12px; }
-  .gallery__arrow--next { right: 12px; }
-  .gallery__count {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    z-index: 2;
-    padding: 4px 9px;
-    font-size: 12px;
-    line-height: 1.3;
-    background: rgba(255, 255, 255, 0.9);
-  }
-}
-
-/* --------------------------------------------------------------------------
-   7. Produktinfo
-   -------------------------------------------------------------------------- */
-.info {
-  position: sticky;
-  top: calc(var(--header-h) + 20px);
-}
-@media (max-width: 900px) {
-  .info { position: static; }
-}
-
-.info__title {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.35;
-}
-.info__price { margin-top: 8px; font-size: 16px; font-weight: 600; }
-
-.field { margin-top: 24px; }
-.field__row { display: flex; align-items: baseline; justify-content: space-between; }
-.field__label { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-.field__label strong { font-weight: 600; color: var(--ink); }
-
-.swatches { display: flex; gap: 10px; margin-top: 10px; }
-.swatch {
-  display: block;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  background: var(--petrol);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-}
-.swatch.is-selected { outline: 1px solid var(--ink); outline-offset: 3px; }
-
-.sizes { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
-.size {
-  width: 100%;
-  height: 46px;
-  font-size: 13px;
-  color: var(--ink);
-  background: var(--white);
-  border: 1px solid #c9c9c9;
-  border-radius: 0;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
-}
-.size:hover { border-color: var(--ink); }
-.size[aria-pressed="true"] { color: #fff; background: var(--ink); border-color: var(--ink); }
-
-.buy { display: flex; gap: 8px; margin-top: 24px; }
-.buy .btn--primary { flex: 1; }
-
-.ship {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-  font-size: 13px;
-}
-
-/* Beschreibung */
-.desc {
-  margin-top: 20px;
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 400;
-  color: var(--ink);
-}
-
-/* --------------------------------------------------------------------------
-   8. Aufklappbereiche
-   -------------------------------------------------------------------------- */
-.accordion { margin-top: 24px; border-top: 1px solid var(--line); }
-.accordion details { border-bottom: 1px solid var(--line); }
-.accordion summary {
-  position: relative;
-  display: block;
-  padding: 16px 28px 16px 0;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  list-style: none;
-  cursor: pointer;
-}
-.accordion summary::-webkit-details-marker { display: none; }
-.accordion summary::after {
-  content: "+";
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1;
-  transform: translateY(-50%);
-}
-.accordion details[open] summary::after { content: "–"; }
-
-.accordion__body { padding: 0 0 18px; font-size: 13px; line-height: 20px; }
-.accordion__body p + p,
-.accordion__body ul,
-.accordion__body .btn { margin-top: 10px; }
-.accordion__body li { position: relative; padding-left: 14px; }
-.accordion__body li::before { content: "–"; position: absolute; left: 0; }
-
-.table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.table th, .table td { padding: 8px 0; text-align: left; border-bottom: 1px solid var(--line); font-weight: 400; }
-.table thead th { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.table tbody th { font-weight: 600; }
-.note { margin-top: 10px; font-size: 12px; color: var(--muted); }
-
-/* --------------------------------------------------------------------------
-   9. Newsletter
-   -------------------------------------------------------------------------- */
-.newsletter { padding-block: 56px; background: var(--soft); }
-.newsletter__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px 48px; }
-.newsletter__title { font-size: 16px; font-weight: 600; letter-spacing: 0.02em; line-height: 1.3; }
-.newsletter__text { margin-top: 6px; font-size: 13px; color: var(--muted); }
-.newsletter__form { display: flex; gap: 8px; width: min(100%, 480px); }
-.newsletter__form .btn { flex: none; }
-
-@media (max-width: 720px) {
-  .newsletter { padding-block: 40px; }
-  .newsletter__inner { flex-direction: column; align-items: stretch; }
-  .newsletter__form { width: 100%; }
-}
-
-/* --------------------------------------------------------------------------
    10. Footer
    -------------------------------------------------------------------------- */
 .site-footer { padding-block: 56px 28px; background: var(--white); border-top: 1px solid var(--line); }
@@ -649,11 +395,87 @@ experimental-image img.xi__label {
   .info-list > div { grid-template-columns: 1fr; }
 }
 
-.sizes-text { margin-top: 8px; font-size: 13px; color: var(--ink); }
 .info-block { scroll-margin-top: calc(var(--header-h) + 8px); }
 .accordion details[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
-/* Bildgrößen: Galeriebilder (510 px) höchstens ca. 1,1-fach darstellen */
-@media (min-width: 541px) and (max-width: 900px) {
-  .gallery { margin-inline: auto; max-width: 540px; }
+
+/* --------------------------------------------------------------------------
+   Landingpage
+   -------------------------------------------------------------------------- */
+experimental-image { display: block; position: relative; overflow: hidden; background: #e8e4e0; }
+.xi img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.eyebrow { margin-bottom: 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.more { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.more::after { content: "›"; margin-left: 6px; }
+.more:hover { text-decoration: underline; }
+.fineprint { margin-top: 20px; font-size: 12px; color: var(--muted); }
+
+/* Hero (Bild 1078 px breit: Darstellung höchstens ca. 1,1-fach) */
+.hero { padding-top: 24px; }
+.hero__media { position: relative; max-width: 1150px; margin-inline: auto; }
+.xi--hero { aspect-ratio: 1078 / 512; }
+.hero__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 56%);
+  pointer-events: none;
+}
+.hero__text { position: absolute; z-index: 3; left: 5%; top: 50%; max-width: 36%; transform: translateY(-50%); }
+.hero__title { font-size: clamp(28px, 3.6vw, 50px); font-weight: 700; line-height: 1.05; letter-spacing: 0.02em; text-transform: uppercase; }
+.hero__sub { margin-top: 14px; font-size: 15px; line-height: 1.5; color: var(--ink); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+
+.usp { border-bottom: 1px solid var(--line); }
+.usp__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; max-width: 1150px; margin: 0 auto; padding-block: 24px; }
+.usp__list li { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--muted); }
+.usp__list strong { font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); }
+
+.lp-section { padding-block: clamp(40px, 6vw, 80px); }
+.lp-section--soft { background: var(--soft); }
+.lp-section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
+.lp-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 24px; max-width: 1150px; margin: 0 auto 28px; }
+.lp-title { font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: 0.04em; line-height: 1.15; text-transform: uppercase; }
+.lp-sub { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
+/* Produktkacheln 2:3 (Bilder 320–402 px breit, 504 px hoch: Kachel höchstens ca. 370 px breit) */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 1150px; margin: 0 auto; }
+.xi--tile { aspect-ratio: 2 / 3; }
+.xi--tile img { object-fit: contain; }
+/* Overshirt: Hintergrundton des Bildes übernehmen; heller Rand links im Original ausblenden
+   (nur Darstellung, die Datei bleibt unverändert) */
+.xi--jacket { background: #e8e4df; }
+.xi--jacket img { object-view-box: inset(0 0 0 1.2%); }
+.tile { scroll-margin-top: calc(var(--header-h) + 16px); }
+.tile__name { margin-top: 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.tile__meta { margin-top: 2px; font-size: 13px; color: var(--muted); }
+.tile__price { margin-top: 6px; font-size: 15px; font-weight: 600; }
+
+/* Kategorie-Abschnitt (Porträt 448 px breit: höchstens 460 px) */
+.feature { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: 48px; align-items: center; max-width: 1150px; margin: 0 auto; }
+.xi--portrait { aspect-ratio: 3 / 4; }
+.xi--portrait img { object-position: 50% 15%; }
+.feature__lead { margin-top: 14px; max-width: 30em; font-size: 15px; color: var(--ink); }
+.catlist { margin: 24px 0; border-bottom: 1px solid var(--line); }
+.catlist a { display: flex; justify-content: space-between; padding: 16px 0; border-top: 1px solid var(--line); font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
+.catlist a::after { content: "›"; font-size: 18px; line-height: 1; }
+.catlist a:hover { background: rgba(0, 0, 0, 0.03); }
+
+.fineprint { max-width: 1150px; margin: 20px auto 0; }
+
+@media (max-width: 900px) {
+  .hero__media::before { display: none; }
+  .hero__text { position: static; max-width: none; padding: 20px 0 0; transform: none; }
+  .usp__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature { grid-template-columns: 1fr; gap: 28px; }
+  .xi--portrait { max-width: 460px; }
+}
+@media (max-width: 720px) {
+  /* Handy: höherer Ausschnitt mit den Personen (Skalierung höchstens ca. 1,05-fach) */
+  .xi--hero { aspect-ratio: 4 / 3; }
+  .xi--hero img { object-position: 78% 50%; }
+  .tiles { grid-template-columns: 1fr; max-width: 360px; }
+  .hero__actions .btn { flex: 1 1 140px; }
 }

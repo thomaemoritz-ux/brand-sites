@@ -9,11 +9,14 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../shared/label.css">
 
-  <!-- Bedingung aus URL-Parameter und Bild-Komponente.
+  <!-- Gemeinsamer Studien-Code für alle Seiten (identisch in beiden Versionen):
+       Bedingung aus ?label=1|0, Bild-Komponente mit KI-Label, 90-Sekunden-Timer.
        Synchron geladen, damit das Label im selben Frame wie das Bild erscheint. -->
-  <script src="js/condition.js"></script>
-  <script src="js/experimental-image.js"></script>
+  <script src="../shared/condition.js"></script>
+  <script src="../shared/experimental-image.js"></script>
+  <script src="../shared/session.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -37,7 +40,7 @@
       </nav>
 
       <div class="site-header__actions">
-        <a class="btn btn--small btn--primary" href="#daten">Technische Daten</a>
+        <a class="btn btn--small btn--primary" href="#service">Händler finden</a>
         <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
           <span class="nav-toggle__bar"></span>
           <span class="nav-toggle__bar"></span>
@@ -55,8 +58,8 @@
         <h1 class="hero__title" id="hero-title">VELORA V7</h1>
         <p class="hero__sub">Elektrische Freiheit. Neu definiert.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#v7">V7 entdecken</a>
-          <a class="btn btn--outline" href="#daten">Technische Daten</a>
+          <a class="btn btn--primary" href="#v7">Mehr erfahren</a>
+          <a class="btn btn--outline" href="#service">Händler finden</a>
         </div>
       </div>
 
@@ -316,13 +319,13 @@
     </section>
 
     <!-- J. FINAL CTA -->
-    <section class="section section--paper cta" id="probefahrt" aria-labelledby="cta-title">
+    <section class="section section--paper cta" id="abschluss" aria-labelledby="cta-title">
       <div class="container cta__inner reveal">
         <h2 class="h2 cta__title" id="cta-title">Der VELORA V7.</h2>
         <p class="cta__sub">Elektrisch. Klar. Für morgen gemacht.</p>
         <div class="cta__actions">
-          <a class="btn btn--primary" href="#daten">Technische Daten</a>
-          <a class="btn btn--outline" href="#service">Kontakt &amp; Service</a>
+          <a class="btn btn--primary" href="#daten">Mehr erfahren</a>
+          <a class="btn btn--outline" href="#service">Händler finden</a>
         </div>
       </div>
     </section>
@@ -332,12 +335,11 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
         <div class="info-block__body">
-          <p>Du hast Fragen zum V7, zum Laden oder zur Technik? Unser Kundenservice berät dich persönlich.</p>
+          <p>Du hast Fragen zum V7, zum Laden oder zur Technik? Unser Kundenservice beantwortet deine Anfrage per E-Mail.</p>
           <dl class="info-list">
-            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
-            <div><dt>E-Mail</dt><dd>service@velora-motors.example</dd></div>
-            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag 8–18 Uhr, Samstag 9–14 Uhr</dd></div>
-            <div><dt>Beratung vor Ort</dt><dd>Den V7 kannst du in ausgewählten VELORA-Häusern ansehen. Einen Termin vereinbarst du telefonisch.</dd></div>
+            <div><dt>E-Mail</dt><dd>service@velora-motors.de</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag, 9–17 Uhr</dd></div>
+            <div><dt>Beratung vor Ort</dt><dd>Den V7 kannst du in ausgewählten VELORA-Häusern ansehen. Anfragen dazu beantwortet der Kundenservice per E-Mail.</dd></div>
           </dl>
         </div>
       </div>
@@ -403,9 +405,9 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="impressum-title">Impressum</h2>
         <div class="info-block__body">
-          <p>Angaben gemäß § 5 DDG:<br>VELORA Motors GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
-          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
-          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+          <p>Angaben gemäß § 5 DDG:<br>VELORA Motors GmbH<br>Lindenallee 24<br>80331 München<br>Deutschland</p>
+          <p>Geschäftsführung: Dr. Julia Hartmann</p>
+          <p>Kontakt: E-Mail service@velora-motors.de · weitere Informationen unter <a href="#service">Service &amp; Kontakt</a>.</p>
         </div>
       </div>
     </section>

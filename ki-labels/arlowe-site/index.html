@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bedrucktes Baumwoll-Sweatshirt – Teens | ARLOWE</title>
-  <meta name="description" content="Bedrucktes Baumwoll-Sweatshirt in Petrolblau: gerader Schnitt, Rundhalsausschnitt, lange Ärmel und Grafikprint auf Brust und Rücken.">
+  <title>ARLOWE – Neue Kollektion | Basics für den Alltag</title>
+  <meta name="description" content="ARLOWE: weiche Materialien, klare Schnitte und Farben für den Herbst. Entdecke die Neuheiten und Kategorien.">
   <meta name="theme-color" content="#ffffff">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../shared/label.css">
 
-  <!-- Bedingung aus URL-Parameter und Bild-Komponente.
+  <!-- Gemeinsamer Studien-Code für alle Seiten (identisch in beiden Versionen):
+       Bedingung aus ?label=1|0, Bild-Komponente mit KI-Label, 90-Sekunden-Timer.
        Synchron geladen, damit das Label im selben Frame wie das Bild erscheint. -->
-  <script src="js/condition.js"></script>
-  <script src="js/experimental-image.js"></script>
+  <script src="../shared/condition.js"></script>
+  <script src="../shared/experimental-image.js"></script>
+  <script src="../shared/session.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -29,9 +32,8 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
         <ul>
-          <li><a href="#top">Produkt</a></li>
-          <li><a href="#details-care">Details &amp; Pflege</a></li>
-          <li><a href="#details-measures">Maße</a></li>
+          <li><a href="#neuheiten">Neuheiten</a></li>
+          <li><a href="#kategorien">Kategorien</a></li>
           <li><a href="#service">Service</a></li>
         </ul>
       </nav>
@@ -40,140 +42,119 @@
   </header>
 
   <main id="main">
-    <div class="container" id="top">
 
-      <nav class="crumbs" aria-label="Brotkrumen">
-        <ol>
-          <li>Teens</li>
-          <li>Mädchen</li>
-          <li>Sweatshirts</li>
-        </ol>
-      </nav>
-
-      <div class="pdp">
-
-        <!-- B. GALERIE -->
-        <section class="gallery" aria-label="Produktbilder" id="gallery">
-          <div class="gallery__track" id="gallery-track" tabindex="0">
-            <experimental-image class="gallery__item gallery__item--medium" data-ai-label>
-              <img src="images/arlowe/medium_model.png" width="508" height="510"
-                   alt="Model in einem petrolblauen Sweatshirt mit Grafikprint, die Hände in den Hosentaschen"
-                   fetchpriority="high" decoding="async">
-            </experimental-image>
-            <experimental-image class="gallery__item gallery__item--full">
-              <img src="images/arlowe/full_model.png" width="510" height="510"
-                   alt="Ganzkörperansicht: Model in petrolblauem Sweatshirt und hellblauer Jeans mit weitem Bein"
-                   loading="lazy" decoding="async">
-            </experimental-image>
-            <experimental-image class="gallery__item gallery__item--front">
-              <img src="images/arlowe/product_front.png" width="510" height="510"
-                   alt="Petrolblaues Sweatshirt von vorn mit kleinem Grafikprint auf der Brust"
-                   loading="lazy" decoding="async">
-            </experimental-image>
-            <experimental-image class="gallery__item gallery__item--back">
-              <img src="images/arlowe/product_back.png" width="508" height="510"
-                   alt="Petrolblaues Sweatshirt von hinten mit großem abstraktem Grafikprint"
-                   loading="lazy" decoding="async">
-            </experimental-image>
-            <experimental-image class="gallery__item gallery__item--detail">
-              <img src="images/arlowe/detail_model.png" width="510" height="510"
-                   alt="Detailansicht: Model im Halbprofil mit Blick auf Rundhalsausschnitt und Print"
-                   loading="lazy" decoding="async">
-            </experimental-image>
-            <experimental-image class="gallery__item gallery__item--print">
-              <img src="images/arlowe/print_detail.png" width="510" height="510"
-                   alt="Nahaufnahme des Grafikprints auf dem petrolblauen Baumwollstoff"
-                   loading="lazy" decoding="async">
-            </experimental-image>
-          </div>
-
-          <div class="gallery__ui">
-            <button type="button" class="gallery__arrow gallery__arrow--prev" data-gallery="prev" aria-label="Vorheriges Bild">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.500 5-7 7 7 7"/></svg>
-            </button>
-            <button type="button" class="gallery__arrow gallery__arrow--next" data-gallery="next" aria-label="Nächstes Bild">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.500 5 7 7-7 7"/></svg>
-            </button>
-            <p class="gallery__count" id="gallery-count" aria-live="polite">1 / 6</p>
-          </div>
-        </section>
-
-        <!-- C. PRODUKTINFO -->
-        <section class="info" aria-labelledby="pdp-title">
-          <h1 class="info__title" id="pdp-title">Bedrucktes Baumwoll-Sweatshirt</h1>
-          <p class="info__price"><span class="visually-hidden">Preis: </span>39,99&nbsp;€</p>
-
-          <div class="field">
-            <p class="field__label">Farbe: <strong>Petrolblau</strong></p>
-            <ul class="swatches">
-              <li><span class="swatch is-selected" role="img" aria-label="Farbe Petrolblau"></span></li>
-            </ul>
-          </div>
-
-          <div class="field">
-            <div class="field__row">
-              <p class="field__label">Größen</p>
-              <a class="linklike" href="#details-measures">Größentabelle</a>
+    <!-- B. HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__media">
+          <experimental-image class="xi xi--hero">
+            <img src="images/arlowe/hero.png" width="1078" height="512"
+                 alt="Zwei junge Erwachsene gehen im Herbstlicht eine Straße entlang: sie im petrolblauen Sweatshirt und in heller Jeans, er im beigen Overshirt"
+                 fetchpriority="high" decoding="async">
+          </experimental-image>
+          <div class="hero__text">
+            <p class="eyebrow">Neue Kollektion</p>
+            <h1 class="hero__title" id="hero-title">Basics mit Haltung.</h1>
+            <p class="hero__sub">Weiche Materialien, klare Schnitte und Farben für den Herbst.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#neuheiten">Mehr erfahren</a>
+              <a class="btn btn--outline" href="#service">Händler finden</a>
             </div>
-            <p class="sizes-text">Erhältlich in XS, S, M, L und XL.</p>
           </div>
-
-          <div class="buy">
-            <a class="btn btn--primary" href="#details-store">In der Filiale ansehen</a>
-          </div>
-
-          <p class="ship">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.500" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.500-5.700-6.500-11a6.500 6.500 0 0 1 13 0c0 5.300-6.500 11-6.500 11z"/><circle cx="12" cy="10" r="2.300"/></svg>
-            In ausgewählten Filialen erhältlich
-          </p>
-
-          <!-- Beschreibung -->
-          <p class="desc">Weiches Sweatshirt aus 100&nbsp;% Baumwolle. Gerader Schnitt mit Rundhalsausschnitt und langen Ärmeln. Kleiner Grafikprint auf der Brust, großer Print auf dem Rücken.</p>
-
-          <div class="accordion">
-            <details id="details-care">
-              <summary>Details, Zusammensetzung und Pflege</summary>
-              <div class="accordion__body">
-                <p><strong>Zusammensetzung:</strong> 100&nbsp;% Baumwolle.</p>
-                <ul>
-                  <li>Bei 30&nbsp;°C waschen</li>
-                  <li>Nicht bleichen</li>
-                  <li>Nicht im Trockner trocknen</li>
-                  <li>Auf links bei niedriger Temperatur bügeln, Print nicht bügeln</li>
-                </ul>
-              </div>
-            </details>
-
-            <details id="details-measures">
-              <summary>Maße</summary>
-              <div class="accordion__body">
-                <table class="table">
-                  <thead>
-                    <tr><th scope="col">Größe</th><th scope="col">Brustbreite</th><th scope="col">Länge</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><th scope="row">XS</th><td>47&nbsp;cm</td><td>60&nbsp;cm</td></tr>
-                    <tr><th scope="row">S</th><td>50&nbsp;cm</td><td>62&nbsp;cm</td></tr>
-                    <tr><th scope="row">M</th><td>53&nbsp;cm</td><td>64&nbsp;cm</td></tr>
-                    <tr><th scope="row">L</th><td>56&nbsp;cm</td><td>66&nbsp;cm</td></tr>
-                    <tr><th scope="row">XL</th><td>59&nbsp;cm</td><td>68&nbsp;cm</td></tr>
-                  </tbody>
-                </table>
-                <p class="note">Maße des Kleidungsstücks, flach gemessen.</p>
-              </div>
-            </details>
-
-            <details id="details-store">
-              <summary>Verfügbarkeit in der Filiale</summary>
-              <div class="accordion__body">
-                <p>Dieser Artikel ist in ausgewählten ARLOWE-Filialen erhältlich. Adressen und Öffnungszeiten findest du unter Service &amp; Kontakt.</p>
-                <a class="btn btn--outline btn--small" href="#service">Filialen &amp; Service</a>
-              </div>
-            </details>
-          </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- C. VORTEILE -->
+    <section class="usp" aria-label="Unsere Versprechen">
+      <div class="container">
+        <ul class="usp__list">
+          <li><strong>Weiche Materialien</strong><span>Baumwolle für den ganzen Tag</span></li>
+          <li><strong>Klare Schnitte</strong><span>Leicht zu kombinieren</span></li>
+          <li><strong>Pflegeleicht</strong><span>Waschbar bei 30&nbsp;°C</span></li>
+          <li><strong>In deiner Nähe</strong><span>In ausgewählten Filialen</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- D. NEUHEITEN (Produktkacheln) -->
+    <section class="lp-section" id="neuheiten" aria-labelledby="new-title">
+      <div class="container">
+        <div class="lp-head">
+          <div>
+            <h2 class="lp-title" id="new-title">Neu im Sortiment</h2>
+            <p class="lp-sub">Drei Favoriten der Saison</p>
+          </div>
+          <a class="more" href="#kategorien">Zu den Kategorien</a>
+        </div>
+
+        <ul class="tiles">
+          <li>
+            <article class="tile" id="produkt-sweatshirt">
+              <experimental-image class="xi xi--tile">
+                <img src="images/arlowe/product_sweatshirt.png" width="402" height="504"
+                     alt="Petrolblaues Sweatshirt mit kleinem Grafikprint auf der Brust"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+              <h3 class="tile__name">Bedrucktes Baumwoll-Sweatshirt</h3>
+              <p class="tile__meta">100&nbsp;% Baumwolle · Petrolblau</p>
+              <p class="tile__price">39,99&nbsp;€</p>
+            </article>
+          </li>
+          <li>
+            <article class="tile" id="produkt-jeans">
+              <experimental-image class="xi xi--tile">
+                <img src="images/arlowe/product_jeans.png" width="320" height="504"
+                     alt="Wide-Leg-Jeans in hellem Blau mit leichter Waschung"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+              <h3 class="tile__name">Wide-Leg-Jeans</h3>
+              <p class="tile__meta">100&nbsp;% Baumwolle · Hellblau</p>
+              <p class="tile__price">49,99&nbsp;€</p>
+            </article>
+          </li>
+          <li>
+            <article class="tile" id="produkt-jacket">
+              <experimental-image class="xi xi--tile xi--jacket">
+                <img src="images/arlowe/product_jacket.png" width="340" height="504"
+                     alt="Overshirt in Stone-Beige mit zwei Brusttaschen und Knopfleiste"
+                     loading="lazy" decoding="async">
+              </experimental-image>
+              <h3 class="tile__name">Overshirt aus Baumwolle</h3>
+              <p class="tile__meta">100&nbsp;% Baumwolle · Stone</p>
+              <p class="tile__price">59,99&nbsp;€</p>
+            </article>
+          </li>
+        </ul>
+        <p class="fineprint">Alle Preise in Euro inkl. MwSt. Verfügbarkeit je Filiale unterschiedlich.</p>
+      </div>
+    </section>
+
+    <!-- E. KATEGORIEN -->
+    <section class="lp-section lp-section--soft" id="kategorien" aria-labelledby="cat-title">
+      <div class="container">
+        <div class="feature">
+          <experimental-image class="xi xi--portrait">
+            <img src="images/arlowe/lifestyle_person.png" width="448" height="1024"
+                 alt="Junge Frau im beigen Overshirt sitzt am Fenstertisch eines Cafés"
+                 loading="lazy" decoding="async">
+          </experimental-image>
+
+          <div class="feature__text">
+            <p class="eyebrow">Kategorien</p>
+            <h2 class="lp-title" id="cat-title">Der Overshirt-Look.</h2>
+            <p class="feature__lead">Lässig kombiniert: Overshirt, weißes T-Shirt und weite Jeans. Entdecke die Teile einzeln.</p>
+            <ul class="catlist">
+              <li><a href="#neuheiten">Neuheiten</a></li>
+              <li><a href="#produkt-sweatshirt">Pullover &amp; Sweatshirts</a></li>
+              <li><a href="#produkt-jeans">Jeans &amp; Hosen</a></li>
+              <li><a href="#produkt-jacket">Jacken &amp; Overshirts</a></li>
+            </ul>
+            <a class="btn btn--outline" href="#service">Händler finden</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- INFO-BEREICH (Service, Fragen, Unternehmen, Rechtliches) -->
     <div class="info-area">
@@ -181,11 +162,10 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="service-title">Service &amp; Kontakt</h2>
         <div class="info-block__body">
-          <p>Du hast Fragen zu diesem Artikel, zur Größe oder zur Pflege? Unser Kundenservice hilft dir gern weiter.</p>
+          <p>Du hast Fragen zu unseren Artikeln, zur Größe oder zur Pflege? Unser Kundenservice beantwortet deine Anfrage per E-Mail.</p>
           <dl class="info-list">
-            <div><dt>Telefon</dt><dd>0800 000 0000 (kostenfrei aus dem deutschen Festnetz)</dd></div>
-            <div><dt>E-Mail</dt><dd>service@arlowe.example</dd></div>
-            <div><dt>Servicezeiten</dt><dd>Montag bis Samstag 9–18 Uhr</dd></div>
+            <div><dt>E-Mail</dt><dd>service@arlowe-fashion.de</dd></div>
+            <div><dt>Servicezeiten</dt><dd>Montag bis Freitag, 9–17 Uhr</dd></div>
             <div><dt>Filialen</dt><dd>ARLOWE-Filialen findest du in ausgewählten Innenstädten. Öffnungszeiten: Montag bis Samstag 10–20 Uhr. Die Verfügbarkeit einzelner Artikel kann je Filiale abweichen.</dd></div>
           </dl>
         </div>
@@ -198,19 +178,19 @@
         <div class="info-block__body">
           <div class="faq">
             <details>
-              <summary>Wie fällt das Sweatshirt aus?</summary>
-              <p>Das Sweatshirt hat einen geraden Schnitt. Alle Maße pro Größe findest du im Bereich Maße. Bei Unsicherheit hilft dir der Kundenservice weiter.</p>
+              <summary>Wie fallen die Teile aus?</summary>
+              <p>Sweatshirt und Overshirt haben einen lockeren, geraden Schnitt, die Jeans ein weites Bein. Bei Unsicherheit hilft dir der Kundenservice weiter.</p>
             </details>
             <details>
               <summary>Wie pflege ich den Print?</summary>
               <p>Am besten auf links bei 30 °C waschen, nicht bleichen und nicht im Trockner trocknen. Den Print beim Bügeln aussparen.</p>
             </details>
             <details>
-              <summary>Aus welchem Material besteht das Sweatshirt?</summary>
-              <p>Das Sweatshirt besteht zu 100 % aus Baumwolle.</p>
+              <summary>Aus welchem Material bestehen die Teile?</summary>
+              <p>Sweatshirt, Jeans und Overshirt bestehen zu 100 % aus Baumwolle.</p>
             </details>
             <details>
-              <summary>Wo ist der Artikel erhältlich?</summary>
+              <summary>Wo sind die Artikel erhältlich?</summary>
               <p>In ausgewählten ARLOWE-Filialen. Die Verfügbarkeit kann je Filiale abweichen, Details stehen unter Service &amp; Kontakt.</p>
             </details>
           </div>
@@ -223,7 +203,7 @@
         <h2 class="info-block__title" id="ueber-uns-title">Über ARLOWE</h2>
         <div class="info-block__body">
           <p>ARLOWE steht für zeitlose Basics mit eigener Handschrift: weiche Materialien, klare Schnitte und Prints, die Persönlichkeit zeigen, ohne laut zu sein.</p>
-          <p>Die Teens-Kollektion richtet sich an alle, die Kleidung suchen, die bequem ist und sich leicht kombinieren lässt.</p>
+          <p>Unsere Kollektion richtet sich an junge Erwachsene, die Kleidung suchen, die bequem ist und sich leicht kombinieren lässt.</p>
         </div>
       </div>
     </section>
@@ -252,9 +232,9 @@
       <div class="container info-block__grid">
         <h2 class="info-block__title" id="impressum-title">Impressum</h2>
         <div class="info-block__body">
-          <p>Angaben gemäß § 5 DDG:<br>ARLOWE Fashion GmbH<br>Musterstraße 1<br>12345 Musterstadt<br>Deutschland</p>
-          <p>Vertreten durch: Max Mustermann (Geschäftsführung)<br>Handelsregister: Amtsgericht Musterstadt, HRB 000000<br>Umsatzsteuer-ID: DE000000000</p>
-          <p>Kontakt: siehe <a href="#service">Service &amp; Kontakt</a>. Alle Angaben sind Beispielangaben.</p>
+          <p>Angaben gemäß § 5 DDG:<br>ARLOWE Fashion GmbH<br>Marktgasse 9<br>50667 Köln<br>Deutschland</p>
+          <p>Geschäftsführung: Sophie Reinhardt</p>
+          <p>Kontakt: E-Mail service@arlowe-fashion.de · weitere Informationen unter <a href="#service">Service &amp; Kontakt</a>.</p>
         </div>
       </div>
     </section>
@@ -270,15 +250,14 @@
           <ul>
             <li><a href="#service">Kundenservice</a></li>
             <li><a href="#faq">Häufige Fragen</a></li>
-            <li><a href="#details-measures">Größenberatung</a></li>
+            <li><a href="#service">Händler finden</a></li>
           </ul>
         </nav>
         <nav class="footer__col" aria-labelledby="f-produkt">
-          <h2 class="footer__title" id="f-produkt">Produkt</h2>
+          <h2 class="footer__title" id="f-produkt">Kollektion</h2>
           <ul>
-            <li><a href="#details-care">Details &amp; Pflege</a></li>
-            <li><a href="#details-measures">Maße</a></li>
-            <li><a href="#details-store">Filialverfügbarkeit</a></li>
+            <li><a href="#neuheiten">Neuheiten</a></li>
+            <li><a href="#kategorien">Kategorien</a></li>
           </ul>
         </nav>
         <nav class="footer__col" aria-labelledby="f-firma">

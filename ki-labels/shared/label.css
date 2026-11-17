@@ -1,0 +1,18 @@
+/* KI-Label: offizielles EU-Icon "Fully AI-Generated" (schwarz) – gemeinsam für alle
+   Seiten. Größe und Randabstand setzt shared/experimental-image.js so, dass die
+   Labelfläche bei jedem Bild denselben Anteil der Bildfläche hat (konstantes
+   Label-Bild-Verhältnis). Absolut positioniert: kein Einfluss auf Größe, Layout
+   oder Scrollhöhe. Die Werte hier sind nur der Fallback. */
+experimental-image img.xi__label {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  width: auto;
+  height: 20px;
+  object-fit: contain;
+  transform: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}

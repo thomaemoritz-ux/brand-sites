@@ -1,8 +1,8 @@
 /* ==========================================================================
    NORDFELD – Einzelhandel (Wochenangebote)
    Ein Stylesheet für beide Experimentalbedingungen. Es gibt keine
-   bedingungsabhängigen Regeln, außer dem Label-Overlay (.xi__label),
-   das nur dann im DOM existiert, wenn die Bedingung "ai" aktiv ist.
+   bedingungsabhängigen Regeln. Das Label-Overlay steht in ../shared/label.css; sein
+   Element existiert nur dann im DOM, wenn die Bedingung "ai" aktiv ist.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -342,26 +342,6 @@ experimental-image {
   transform-origin: var(--trim-origin, 100% 100%);
 }
 
-/* KI-Label: offizielles EU-Icon "Fully AI-Generated" (schwarz), auf allen Seiten
-   dieselbe Datei und Größe. Absolut positioniert: kein Einfluss auf Größe,
-   Layout oder Scrollhöhe. */
-experimental-image img.xi__label {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  z-index: 2;
-  width: auto;
-  height: 26px;
-  max-width: calc(100% - 24px);
-  object-fit: contain;
-  transform: none;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-@media (max-width: 720px) {
-  experimental-image img.xi__label { right: 10px; bottom: 10px; height: 20px; }
-}
 
 /* Formate je Bild (stabile Boxen -> kein Layout Shift).
    --trim: gemessene Randartefakte der Quelldateien (1–3 px):
@@ -780,4 +760,64 @@ experimental-image img.xi__label {
 /* Bildgrößen: Produktfotos (360 px) höchstens ca. 1,1-fach darstellen */
 @media (max-width: 900px) {
   .products { max-width: 770px; }
+}
+
+.banner[id] { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+/* --------------------------------------------------------------------------
+   Promo-Kachel, Preislisten (ohne Bilder), Haushalt
+   -------------------------------------------------------------------------- */
+.promo-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 100%;
+  min-height: 240px;
+  padding: 24px;
+  color: #fff;
+  background: var(--navy);
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+.promo-tile strong { font-size: 22px; line-height: 1.2; font-weight: 800; }
+.promo-tile span { color: #c9d6e4; }
+.promo-tile::after { content: "›"; margin-top: 4px; font-size: 28px; line-height: 1; color: var(--yellow); }
+.promo-tile:hover { background: #001a33; }
+
+.pricegrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; }
+.pricegroup .h4 { padding-bottom: 8px; border-bottom: 2px solid var(--yellow); display: inline-block; }
+.pricelist { margin-top: 8px; }
+.pricelist li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 16px;
+  align-items: center;
+  padding: 11px 8px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  transition: background-color 0.2s ease;
+}
+.pl__name { font-weight: 600; color: var(--ink); line-height: 1.3; }
+.pl__unit { grid-column: 1; font-size: 13px; color: var(--muted); }
+.pl__price {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  padding: 4px 10px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy);
+  background: var(--yellow);
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.pricelist li:target, .pricelist li.is-found { background: rgba(251, 219, 50, 0.28); }
+
+.haushalt { display: grid; grid-template-columns: 293px minmax(0, 1fr); gap: 32px 48px; align-items: start; }
+.products--single { display: block; }
+
+@media (max-width: 900px) {
+  .pricegrid { grid-template-columns: 1fr; gap: 28px; }
+  .haushalt { grid-template-columns: 1fr; }
+  .products--single { max-width: 358px; }
 }

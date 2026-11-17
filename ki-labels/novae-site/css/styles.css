@@ -1,8 +1,8 @@
 /* ==========================================================================
    NOVAÉ Skin – Radiant Serum
    Ein Stylesheet für beide Experimentalbedingungen. Es gibt keine
-   bedingungsabhängigen Regeln, außer dem Label-Overlay (.xi__label),
-   das nur dann im DOM existiert, wenn die Bedingung "ai" aktiv ist.
+   bedingungsabhängigen Regeln. Das Label-Overlay steht in ../shared/label.css; sein
+   Element existiert nur dann im DOM, wenn die Bedingung "ai" aktiv ist.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -344,26 +344,6 @@ experimental-image {
   transform-origin: var(--trim-origin, 100% 100%);
 }
 
-/* KI-Label: offizielles EU-Icon "Fully AI-Generated" (schwarz), auf allen Seiten
-   dieselbe Datei und Größe. Absolut positioniert: kein Einfluss auf Größe,
-   Layout oder Scrollhöhe. */
-experimental-image img.xi__label {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  z-index: 2;
-  width: auto;
-  height: 26px;
-  max-width: calc(100% - 24px);
-  object-fit: contain;
-  transform: none;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-@media (max-width: 720px) {
-  experimental-image img.xi__label { right: 10px; bottom: 10px; height: 20px; }
-}
 
 /* Formate je Bild (stabile Boxen -> kein Layout Shift).
    --trim: gemessene Randartefakte der Quelldateien

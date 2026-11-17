@@ -14,7 +14,7 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* Suche: springt zum passenden Produkt (findet Titel und Beschreibung) */
+  /* Suche: springt zum passenden Produkt (findet Produkte und Preislisten-Einträge) */
   var form = document.querySelector(".search");
   var input = document.getElementById("search-input");
   var msg = document.getElementById("search-msg");
@@ -34,13 +34,13 @@
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    document.querySelectorAll(".card.is-found").forEach(function (c) { c.classList.remove("is-found"); });
+    document.querySelectorAll(".is-found").forEach(function (c) { c.classList.remove("is-found"); });
     var query = normalize(input.value);
     if (!query) return;
 
     var words = query.split(" ");
     var hit = null;
-    document.querySelectorAll(".card").forEach(function (card) {
+    document.querySelectorAll(".card, .pricelist li").forEach(function (card) {
       if (hit) return;
       var text = normalize(card.textContent);
       if (words.every(function (w) { return text.indexOf(w) !== -1; })) hit = card;

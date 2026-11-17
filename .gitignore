@@ -22,3 +22,6 @@
 # Systemdateien
 .DS_Store
 .Rhistory
+/ki-labels/STIMULI_DOKUMENTATION.md
+/ki-labels/QUALTRICS_EINBETTUNG.md
+/ki-labels/ARLOWE_BILDER_PROMPT.md

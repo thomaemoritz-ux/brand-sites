@@ -2,7 +2,7 @@
 
 Vier eigenständige, statische Websites (HTML, CSS, JavaScript – ohne Build und
 ohne Abhängigkeiten) im Ordner `ki-labels/`. Jede Seite gibt es in zwei
-Varianten, die über den URL-Parameter `v` gewählt werden:
+Varianten, die über den URL-Parameter `label` (0 oder 1) gewählt werden:
 
 | Ordner | Seite |
 |---|---|
@@ -15,17 +15,14 @@ Alle Marken und Angebote sind fiktiv. Alle Seiten dienen nur der
 Produktinformation (keine Kauffunktionen); jeder Link führt zu einem Abschnitt
 derselben Seite. Das Kennzeichnungs-Icon ist das offizielle EU-Icon der
 Europäischen Kommission (frei nutzbar ohne Namensnennung), auf allen Seiten
-dieselbe Datei in `assets/`.
+dieselbe Datei in `ki-labels/shared/`.
 
 `ki-labels/index.html` ist eine Übersichtsseite mit allen Links.
 
 ## Lokal ansehen
 
 ```bash
-python3 -m http.server 3000 --directory ki-labels/site
-python3 -m http.server 3001 --directory ki-labels/novae-site
-python3 -m http.server 3002 --directory ki-labels/nordfeld-site
-python3 -m http.server 3004 --directory ki-labels/arlowe-site
+python3 -m http.server 3003 --directory ki-labels
 ```
 
-Dann z. B. `http://localhost:3002/?v=a` bzw. `?v=b` öffnen.
+Dann z. B. `http://localhost:3003/nordfeld-site/?label=0` bzw. `?label=1` öffnen.
