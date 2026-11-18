@@ -479,3 +479,9 @@ experimental-image { display: block; position: relative; overflow: hidden; backg
   .tiles { grid-template-columns: 1fr; max-width: 360px; }
   .hero__actions .btn { flex: 1 1 140px; }
 }
+
+/* Sehr schmale Rahmen (z. B. Qualtrics-iframe auf dem Handy, < 340 px):
+   nichts darf breiter als der Rahmen werden. Ab 341 px unverändert. */
+@media (max-width: 340px) {
+  .lp-head { flex-wrap: wrap; }
+}

@@ -815,3 +815,14 @@ experimental-image {
 .specs dt { color: var(--muted); }
 .specs dd { margin: 0; text-align: right; color: var(--ink); }
 @media (max-width: 900px) { .specs { grid-template-columns: 1fr; gap: 36px; } }
+
+/* Sehr schmale Rahmen (z. B. Qualtrics-iframe auf dem Handy, < 340 px):
+   nichts darf breiter als der Rahmen werden. Ab 341 px unverändert. */
+@media (max-width: 340px) {
+  .site-header__inner { padding-inline: 12px; gap: 8px; }
+  .site-header .brand__name { font-size: 16px; letter-spacing: 0.2em; margin-right: -0.2em; }
+  .site-header .btn--small { padding: 0 10px; font-size: 12px; }
+  .specs { grid-template-columns: minmax(0, 1fr); }
+  .specs__row { gap: 12px; }
+  .specs dt, .specs dd { min-width: 0; overflow-wrap: anywhere; }
+}

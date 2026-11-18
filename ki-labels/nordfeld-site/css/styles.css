@@ -821,3 +821,15 @@ experimental-image {
   .haushalt { grid-template-columns: 1fr; }
   .products--single { max-width: 358px; }
 }
+
+/* Sehr schmale Rahmen (z. B. Qualtrics-iframe auf dem Handy, < 340 px):
+   nichts darf breiter als der Rahmen werden. Ab 341 px unverändert. */
+@media (max-width: 340px) {
+  .site-header__inner { padding-inline: 12px; gap: 8px; }
+  .section-head { flex-wrap: wrap; }
+  .flyers { grid-template-columns: minmax(0, 1fr); }
+  .flyer { min-width: 0; }
+}
+@media (max-width: 270px) {
+  .products--deals { grid-template-columns: minmax(0, 1fr); }
+}
