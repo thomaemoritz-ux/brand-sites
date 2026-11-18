@@ -9,8 +9,11 @@
  * Es erscheint auf JEDEM <experimental-image>, sobald STUDY_CONDITION === "ai"
  * (siehe condition.js).
  *
- * Größe: konstantes Label-Bild-Flächenverhältnis über alle Stimuli
- *   Fläche(Label) / Fläche(Bild) = LABEL_AREA_RATIO  (für jedes Bild gleich)
+ * Größe: konstantes Label-Bild-Flächenverhältnis von 2 % über alle Stimuli
+ *   Fläche(Label) / Fläche(Bild) = LABEL_AREA_RATIO  (für jedes Bild gleich),
+ * Labelhöhe jedoch maximal LABEL_MAX_HEIGHT = 32 px. Die Obergrenze greift nur
+ * bei großen (meist seitenbreiten Header-)Bildern; dort liegt das Verhältnis
+ * entsprechend unter 2 %. Bei kleineren Bildern gilt exakt 2 %.
  * Das Seitenverhältnis des EU-Icons (viewBox 1384,24 x 266,41) bleibt erhalten,
  * der Abstand zur rechten unteren Bildecke skaliert mit der Labelhöhe.
  *
@@ -27,6 +30,7 @@
   var LABEL_AREA_RATIO = 0.02; // 2,0 % der Bildfläche
   var LABEL_ASPECT = 1384.24 / 266.41;
   var LABEL_INSET = 0.6; // Abstand zur Ecke = 0,6 x Labelhöhe
+  var LABEL_MAX_HEIGHT = 32; // Obergrenze der Labelhöhe in px
 
   var SHOW = window.STUDY_CONDITION === "ai";
 
@@ -38,7 +42,7 @@
   function fitLabel(host, label) {
     var area = host.clientWidth * host.clientHeight;
     if (!area) return;
-    var h = Math.sqrt((LABEL_AREA_RATIO * area) / LABEL_ASPECT);
+    var h = Math.min(Math.sqrt((LABEL_AREA_RATIO * area) / LABEL_ASPECT), LABEL_MAX_HEIGHT);
     label.style.height = h + "px";
     label.style.right = label.style.bottom = h * LABEL_INSET + "px";
   }
