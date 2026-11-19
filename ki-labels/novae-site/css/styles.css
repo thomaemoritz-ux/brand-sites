@@ -752,3 +752,8 @@ experimental-image {
   .xi--routine     { max-width: 560px; }
   .xi--application { max-width: 760px; }
 }
+
+/* Handy (≤ 720 px): Header-Button „Händler finden“ kompakter. PC unverändert. */
+@media (max-width: 720px) {
+  .site-header .btn--small { min-height: 34px; padding: 0 12px; font-size: 10px; letter-spacing: 0.08em; }
+}
