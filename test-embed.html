@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Embed test</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root { --bg:#f4f5f7; --card:#fff; --ink:#15202b; --muted:#5d6b7a; --line:#dde2e8; --accent:#1f5fa8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 16px; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+    h1 { margin: 0 0 12px; font-size: 18px; }
+    form { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: end; margin-bottom: 14px; }
+    label { display: grid; gap: 2px; font-size: 12px; color: var(--muted); }
+    select, input, button { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); }
+    button { cursor: pointer; border-color: var(--accent); color: var(--accent); }
+    .wrap { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    iframe { display: block; border: 1px solid #b9c2cc; background: #fff; max-width: 100%; }
+    .panel { flex: 1 1 320px; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 10px; }
+    td { padding: 3px 6px; border-bottom: 1px solid var(--line); }
+    td:first-child { color: var(--muted); width: 40%; }
+    td:last-child { font-variant-numeric: tabular-nums; font-weight: 600; }
+    pre { margin: 0; max-height: 360px; overflow: auto; font-size: 12px; background: #f7f8fa; padding: 8px; border-radius: 6px; white-space: pre-wrap; word-break: break-all; }
+    .muted { color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Embed test</h1>
+  <form id="f">
+    <label>Site
+      <select id="site">
+        <option value="velora">velora</option>
+        <option value="nordfeld">nordfeld</option>
+        <option value="arlowe">arlowe</option>
+        <option value="novae">novae</option>
+      </select>
+    </label>
+    <label>label
+      <select id="label"><option value="1">1</option><option value="0">0</option></select>
+    </label>
+    <label>Frame
+      <select id="size">
+        <option value="1280x650">1280 × 650 (desktop)</option>
+        <option value="375x600">375 × 600 (phone)</option>
+        <option value="414x700">414 × 700 (phone)</option>
+      </select>
+    </label>
+    <label>sid (optional)
+      <input id="sid" size="10" placeholder="e.g. R_123">
+    </label>
+    <button type="submit">Load</button>
+  </form>
+
+  <div class="wrap">
+    <iframe id="frame" title="Embedded page" width="1280" height="650" scrolling="yes"></iframe>
+    <div class="panel">
+      <table>
+        <tbody id="latest"><tr><td colspan="2" class="muted">No message yet.</td></tr></tbody>
+      </table>
+      <p class="muted">Messages received: <span id="count">0</span></p>
+      <pre id="log"></pre>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var frame = document.getElementById("frame");
+      var log = document.getElementById("log");
+      var latest = document.getElementById("latest");
+      var count = 0;
+
+      function load() {
+        var site = document.getElementById("site").value;
+        var label = document.getElementById("label").value;
+        var size = document.getElementById("size").value.split("x");
+        var sid = document.getElementById("sid").value.trim();
+        frame.width = size[0];
+        frame.height = size[1];
+        var url = new URL(site + "/", window.location.href);
+        url.searchParams.set("label", label);
+        if (sid) url.searchParams.set("sid", sid);
+        frame.src = url.href;
+        log.textContent = "Loaded " + url.href + "\n";
+        latest.innerHTML = '<tr><td colspan="2" class="muted">No message yet.</td></tr>';
+        count = 0;
+        document.getElementById("count").textContent = "0";
+      }
+
+      document.getElementById("f").addEventListener("submit", function (e) {
+        e.preventDefault();
+        load();
+      });
+
+      window.addEventListener("message", function (e) {
+        var d = e.data;
+        if (!d || d.type !== "study-tracking") return;
+        count += 1;
+        document.getElementById("count").textContent = String(count);
+        latest.innerHTML = "";
+        ["site", "maxScroll", "imgTotal", "imgSeen", "lblSeen", "clicks"].forEach(function (k) {
+          var tr = document.createElement("tr");
+          var a = document.createElement("td");
+          var b = document.createElement("td");
+          a.textContent = k;
+          b.textContent = String(d[k]);
+          tr.appendChild(a);
+          tr.appendChild(b);
+          latest.appendChild(tr);
+        });
+        var t = new Date().toLocaleTimeString();
+        log.textContent = t + "  " + JSON.stringify(d) + "\n" + log.textContent;
+      });
+
+      load();
+    })();
+  </script>
+</body>
+</html>
