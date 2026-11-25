@@ -750,3 +750,9 @@ media-frame {
   .specs__row { gap: 12px; }
   .specs dt, .specs dd { min-width: 0; overflow-wrap: anywhere; }
 }
+
+@media (max-width: 720px) {
+  .hero { padding-top: var(--header-h); }
+  .hero .xi--hero { order: -1; }
+  .hero__text { padding-top: 32px; }
+}
